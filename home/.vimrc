@@ -11,10 +11,10 @@ if has('vim_starting')
   endif
 
   " Required:
-  set runtimepath+=/Users/u524/.vim/bundle/neobundle.vim/
+  set runtimepath+=/Users/wcatron/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('/Users/u524/.vim/bundle'))
+call neobundle#begin(expand('/Users/wcatron/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -23,12 +23,15 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/vimwiki'
+NeoBundle 'mileszs/ack.vim'
 
 call neobundle#end()
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
 " Set color, miscellaneous formatting options
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 set background=light
 colorscheme solarized
 set autoindent
@@ -44,8 +47,11 @@ set expandtab
 set backspace=indent,eol,start
 vnoremap . :norm.<CR>
 
+" change tabstops and stuff for Ruby, HTML
+autocmd FileType rb, html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 " HTML specific
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+"autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 " Cool mappings
 let mapleader = ","
@@ -76,7 +82,7 @@ set laststatus=2
 " vimwiki config
 filetype plugin on
 map <Leader>d :VimwikiToggleListItem<CR>
-let g:vimwiki_list = [{'path': '/Users/u524/vimwiki/'}]
+let g:vimwiki_list = [{'path': '/Users/wcatron/vimwiki/'}]
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
@@ -114,4 +120,3 @@ augroup END
 autocmd BufWritePre *.py,*.xml :%s/\s\+$//e
 
 setlocal nospell
-augroup END
