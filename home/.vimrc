@@ -24,6 +24,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'mileszs/ack.vim'
+NeoBundle 'justinmk/vim-sneak'
 
 call neobundle#end()
 NeoBundleCheck
@@ -56,6 +57,8 @@ autocmd FileType rb, html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " Cool mappings
 let mapleader = ","
 imap jj <Esc>
+nmap <C-j> 3j3<C-e>
+nmap <C-k> 3k3<C-y>
 
 " Script exec shortcuts
 map <Leader>r :!ruby %<CR>
