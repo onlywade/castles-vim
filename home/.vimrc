@@ -25,6 +25,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'tfnico/vim-gradle'
 
 call neobundle#end()
 NeoBundleCheck
@@ -49,7 +50,9 @@ set backspace=indent,eol,start
 vnoremap . :norm.<CR>
 
 " change tabstops and stuff for Ruby, HTML
-autocmd FileType rb, html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.gradle setf groovy
+autocmd FileType rb, html, groovy setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType groovy setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " HTML specific
 "autocmd FileType html setlocal shiftwidth=2 tabstop=2
